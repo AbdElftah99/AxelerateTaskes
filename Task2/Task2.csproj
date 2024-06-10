@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net48</TargetFramework>
+	  <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+
+	<ItemGroup>
+		<Reference Include="RevitAPI">
+			<HintPath>Libraries\R22\RevitAPI.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+
+		<Reference Include="RevitAPIUI">
+			<HintPath>Libraries\R22\RevitAPIUI.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+
+	<!-- Debug Options-->
+	<PropertyGroup>
+		<PostBuildEvent>
+			mkdir "$(TargetDir)$(AssemblyName)"
+			copy "$(TargetDir)"."" "$(AppData)\Autodesk\Revit\Addins\2022\"
+		</PostBuildEvent>
+		<StartAction>Program</StartAction>
+		<StartProgram>D:\Program Files\Revit 2022\Revit.exe</StartProgram>
+	</PropertyGroup>
+	<!---->
+
+</Project>
